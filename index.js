@@ -35,10 +35,7 @@ function gameComplete(winner){
 var chanceDisplayer = document.querySelector(".section3 p");
 function play(obj) {
   if (obj.textContent != "X" && obj.textContent != "0" && !gameEnd) {
-    if(count>7 && !gameEnd){
-        gameComplete("Tie");
-        return ;
-    }
+   
     if (count % 2 == 0) {
       obj.textContent = "X";
       chanceDisplayer.textContent = "Player 2's Chance";
@@ -113,6 +110,10 @@ function play(obj) {
     ) {
       chanceDisplayer.textContent = allCell[2].textContent + " wins";
       gameComplete(allCell[4].textContent);
+    }
+    if(count>7 && !gameEnd){
+        gameComplete("Tie");
+        return ;
     }
   }
   count++;
